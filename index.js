@@ -1,10 +1,9 @@
 const express = require('express')
 const app = express()
-const morgan = require('morgan')
-
-app.use(express.json())
 const cors = require('cors')
-app.use(morgan('tiny'))
+
+app.use(express.static('build'))
+app.use(express.json())
 app.use(cors())   
 
 let persons = [
@@ -101,4 +100,3 @@ const PORT = process.env.Port || 3001
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
   })
-  
